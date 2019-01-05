@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MY Django Project</title>
+</head>
+<body>
+
+	{% if user_list %}
+	<table>
+		<thead>
+			<tr>
+				<td> Name </td>
+				<td> Email </td>
+				<td> Contact </td>
+				<td> Gender </td>
+				<td> Action </td>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for users in user_list  %}
+			<tr>
+				<td> {{users.name}} </td>
+				<td> {{users.email}} </td>
+				<td> {{users.contact}} </td>
+				<td> {{users.gender}} </td>
+				<td> <a href="{% url 'myapp:detail' users.id %}"> Edit </a> </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{% endif %}
+
+</body>
+</html>
